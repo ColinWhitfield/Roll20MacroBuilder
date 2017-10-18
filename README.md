@@ -4,6 +4,7 @@ Roll20 Macro Builder helps players streamline the creation of power card templat
 •	Roll20.net account (free at http://www.roll20.net).
 •	A D&D4e character sheet inside a previously created game.
 •	Power abilities on the character sheet. These are listed as power-1, power-2, power-3. Roll20 supports up to 100 powers.
+
 Once you have your powers setup you can open the macro builder tool and start creating your template macros. These macros will live in the abilities -> Macros section of the d&d4e character sheet. You can either add them to the macro bar or token bar.
 
 Breaking down the fields in the macro builder:
@@ -47,7 +48,9 @@ Cheers,
 
 Diaonic
 
+
 Complete list of all tags
+
 {{emote=}}	{{multiattack6=}}	{{secondaryattack=}}	{{augment1damage=}}	{{augment4multiattack3=}}	{{augment6critical=}}
 {{name=}}	{{multiattack7=}}	{{secondarydamage=}}	{{augment1critical=}}	{{augment4multiattack4=}}	{{augment6hiteffect=}}
 {{class=}}	{{multiattack8=}}	{{secondarycritical=}}	{{augment1hiteffect=}}	{{augment4multiattack5=}}	{{classmodifier=}}
