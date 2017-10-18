@@ -9,6 +9,5 @@ Roll20 Macro Builder helps players streamline the creation of power card templat
 
 Once you have your powers setup you can open up the macro builder tool and start crafting your template macros. These macros will live in the abilities -> Macros section of the d&d4e character sheet. You can either add them to the macro bar or token bar.
  
- ![alt text]( https://imgur.com/a/3HAUy)
-
+[[https://imgur.com/a/3HAUy|alt=octocat]]
 
