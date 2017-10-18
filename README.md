@@ -42,11 +42,17 @@ Example: Stolen Life – Paladin power
 On hit: You or an ally within 5 squares of you regains a number of hit points equal to your Charisma modifier [[@{charisma-mod}]]
 
 **Hit:** If your power requires the On-Hit text this is where it will be entered.
+
 **Special:** If your power requires the special text this is where it will be entered.
+
 **Miss:** If your power requires the miss text this is where it will be entered.
+
 **Effect:** If your power requires the effect text this is where it will be entered.
+
 **Requirement:** If your power has a requirement, this is where it will be entered.
+
 **Trigger:** If your power has a trigger, this is where it will be entered.
+
 **Emote:**  If you want to add some flavor to your power cards use the emote field, this will display some flavor text above each power card before it’s used. “Jheri swings his Greatsword in a violent circular motion!”
 
 The checkbox: “Is this a combat power?”
