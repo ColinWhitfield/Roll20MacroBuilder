@@ -26,7 +26,7 @@ namespace Roll20MacroBuilder
             genMacro = formatMacroString(genMacro, txt_powerName.Text, txt_powerName.AccessibleName);
             genMacro = formatMacroString(genMacro, cmb_powerType.SelectedItem.ToString(),cmb_powerType.AccessibleName);
             // Keywords
-            genMacro = formatMacroString(genMacro, "type= ", "");
+            genMacro = formatMacroString(genMacro, "type="+SetActionType(), "");
             string strItem = "";
             string withoutLast = "";
             if (lst_keywords.SelectedItems.Count > 0)
@@ -110,6 +110,37 @@ namespace Roll20MacroBuilder
             cmb_classList.SelectedIndex = 0;
             cmb_powerSelection.SelectedIndex = 0;
             cmb_powerType.SelectedIndex = 0;
+        }
+
+        private string SetActionType()
+        {
+            string value = "";
+            Console.WriteLine(cmb_powerType.SelectedIndex);
+            switch (cmb_powerType.SelectedIndex)
+            {
+                case 0:
+                    value = "At-will";
+                    break;
+                case 1:
+                    value = "Encounter";
+                    break;
+                case 2:
+                    value = "Daily";
+                    break;
+                case 3:
+                    value = "Item";
+                    break;
+                case 4:
+                    value = "Other";
+                    break;
+                case 5:
+                    value = "Ability";
+                    break;
+                case 6:
+                    value = "Skill";
+                    break;
+            }
+            return value;
         }
 
         // open a form to show instructions
