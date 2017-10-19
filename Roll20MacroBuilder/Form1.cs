@@ -26,7 +26,7 @@ namespace Roll20MacroBuilder
             genMacro = formatMacroString(genMacro, txt_powerName.Text, txt_powerName.AccessibleName);
             genMacro = formatMacroString(genMacro, cmb_powerType.SelectedItem.ToString(),cmb_powerType.AccessibleName);
             // Keywords
-            genMacro = formatMacroString(genMacro, "type="+SetActionType(), "");
+            genMacro = formatMacroString(genMacro, "type="+SetActionType() + " ♦ ", "");
             string strItem = "";
             string withoutLast = "";
             if (lst_keywords.SelectedItems.Count > 0)
@@ -46,10 +46,9 @@ namespace Roll20MacroBuilder
             genMacro = formatMacroString(genMacro, txt_requirement.Text, txt_requirement.AccessibleName);
             genMacro = formatMacroString(genMacro, txt_trigger.Text, txt_trigger.AccessibleName);
 
-            if(chk_combat.Checked)
-            {
-                genMacro = attackAndDamage(genMacro);
-            }
+            // Evaluate combat types
+            genMacro = attackAndDamage(genMacro);
+            
 
             if (txt_onHit.Text.Length > 0)
             {
@@ -81,8 +80,6 @@ namespace Roll20MacroBuilder
                 genMacro += txt_custom.Text;
             }
 
-
-
             // Output the macro
             txt_generatedMacro.Text = genMacro;
         }
@@ -97,9 +94,16 @@ namespace Roll20MacroBuilder
         private string attackAndDamage(string genMac)
         {
             string ps = cmb_powerSelection.SelectedItem.ToString();
-            genMac += "{{attack=[[1d20 + @{" + ps + "-attack}]] vs @{" + ps + "-def} }}";
-            genMac += "{{damage=[[(1*@{" + ps + "-weapon-num-dice})d@{" + ps + "-weapon-dice}+@{" + ps + "-damage}]] damage. }}";
-            genMac += "{{critical=[[ (floor(@{level}/21)*(@{" + ps + "-weapon-num-dice}*@{" + ps + "-weapon-dice})) + @{" + ps + "-weapon-num-dice}*@{" + ps + "-weapon-dice} + @{" + ps + "-damage} ]] damage. }}";
+
+            if(lst_combatType.SelectedItems.Count < 2 && lst_combatType.SelectedItems.Count > 0)
+            {
+                genMac += "{{attack=[[1d20 + @{" + ps + "-attack}]] vs @{" + ps + "-def} }}";
+            } else
+            {
+                genMac += "{{attack=[[1d20 + @{" + ps + "-attack}]] vs @{" + ps + "-def} }}";
+                genMac += "{{damage=[[(1*@{" + ps + "-weapon-num-dice})d@{" + ps + "-weapon-dice}+@{" + ps + "-damage}]] damage. }}";
+                genMac += "{{critical=[[ (floor(@{level}/21)*(@{" + ps + "-weapon-num-dice}*@{" + ps + "-weapon-dice})) + @{" + ps + "-weapon-num-dice}*@{" + ps + "-weapon-dice} + @{" + ps + "-damage} ]] damage. }}";
+            }
             return genMac;
         }
 
@@ -119,7 +123,7 @@ namespace Roll20MacroBuilder
             switch (cmb_powerType.SelectedIndex)
             {
                 case 0:
-                    value = "At-will";
+                    value = "At-Will";
                     break;
                 case 1:
                     value = "Encounter";
@@ -177,6 +181,17 @@ namespace Roll20MacroBuilder
             lst_keywords.ClearSelected();
             txt_requirement.Text = "";
             txt_trigger.Text = "";
+        }
+
+        private void btn_copy_Click(object sender, EventArgs e)
+        {
+            if(txt_generatedMacro.Text.Length > 0)
+            {
+                System.Windows.Forms.Clipboard.SetText(txt_generatedMacro.Text.ToString());
+            } else
+            {
+                MessageBox.Show("Please generate a macro before copying.");
+            }
         }
     }
 } 

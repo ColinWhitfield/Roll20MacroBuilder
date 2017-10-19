@@ -65,7 +65,9 @@
             this.txt_requirement = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_trigger = new System.Windows.Forms.TextBox();
-            this.chk_combat = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lst_combatType = new System.Windows.Forms.ListBox();
+            this.btn_copy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txt_powerName
@@ -430,7 +432,7 @@
             // 
             this.btn_clear.BackColor = System.Drawing.Color.LightCoral;
             this.btn_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_clear.Location = new System.Drawing.Point(225, 611);
+            this.btn_clear.Location = new System.Drawing.Point(105, 611);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(75, 23);
             this.btn_clear.TabIndex = 36;
@@ -524,22 +526,48 @@
             this.txt_trigger.Size = new System.Drawing.Size(181, 44);
             this.txt_trigger.TabIndex = 39;
             // 
-            // chk_combat
+            // label3
             // 
-            this.chk_combat.AutoSize = true;
-            this.chk_combat.Location = new System.Drawing.Point(373, 363);
-            this.chk_combat.Name = "chk_combat";
-            this.chk_combat.Size = new System.Drawing.Size(138, 17);
-            this.chk_combat.TabIndex = 41;
-            this.chk_combat.Text = "Is this a combat power?";
-            this.chk_combat.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(559, 362);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 13);
+            this.label3.TabIndex = 43;
+            this.label3.Text = "Combat Type";
+            // 
+            // lst_combatType
+            // 
+            this.lst_combatType.AccessibleName = "keywords=";
+            this.lst_combatType.FormattingEnabled = true;
+            this.lst_combatType.Items.AddRange(new object[] {
+            "Attack",
+            "Damage"});
+            this.lst_combatType.Location = new System.Drawing.Point(372, 362);
+            this.lst_combatType.Name = "lst_combatType";
+            this.lst_combatType.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lst_combatType.Size = new System.Drawing.Size(181, 30);
+            this.lst_combatType.TabIndex = 44;
+            // 
+            // btn_copy
+            // 
+            this.btn_copy.BackColor = System.Drawing.Color.LightBlue;
+            this.btn_copy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_copy.Location = new System.Drawing.Point(335, 611);
+            this.btn_copy.Name = "btn_copy";
+            this.btn_copy.Size = new System.Drawing.Size(75, 23);
+            this.btn_copy.TabIndex = 45;
+            this.btn_copy.Text = "Copy";
+            this.btn_copy.UseVisualStyleBackColor = false;
+            this.btn_copy.Click += new System.EventHandler(this.btn_copy_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 643);
-            this.Controls.Add(this.chk_combat);
+            this.Controls.Add(this.btn_copy);
+            this.Controls.Add(this.lst_combatType);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_trigger);
             this.Controls.Add(this.label1);
@@ -624,7 +652,9 @@
         private System.Windows.Forms.TextBox txt_requirement;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_trigger;
-        private System.Windows.Forms.CheckBox chk_combat;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ListBox lst_combatType;
+        private System.Windows.Forms.Button btn_copy;
     }
 }
 
